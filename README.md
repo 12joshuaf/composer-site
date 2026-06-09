@@ -1,3 +1,14 @@
+
+#Joshua Feldman Composer Website
+
+This is just the website for my classical music career portfolio
+
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
