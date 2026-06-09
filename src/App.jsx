@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import conductingPhoto from './assets/conducting.jpg'
 import './App.css'
 
@@ -6,9 +6,16 @@ import './App.css'
 const COMPOSER = {
   name: 'Joshua Feldman',
   title: 'Composer, Conductor, Horn Player',
-  bio: `Joshua Feldman (b. 2004) is a New York based composer, French horn player and music educator. He is a graduate of the Hoff-Barthelson Music School and Skidmore College. Throughout his musical journey he has studied French horn under instructors such as Karen Froehlich, Darlene Kaukoranta and Patrice Malatestinic, as well as composition under Joseph Piscatelli and Dr. Evan Mack. 
+  bio: `Joshua Feldman (b. 2004) is a New York based composer, French horn player 
+  and music educator. He is a graduate of the Hoff-Barthelson Music School and Skidmore College. 
+  Throughout his musical journey he has studied French horn under instructors such as Karen Froehlich, 
+  Darlene Kaukoranta and Patrice Malatestinic, as well as composition under Joseph Piscatelli and Dr. Evan Mack. 
 `,
-  bio2: `Joshua has collaborated as a composer with a number of groups such as Carnegie Hall’s Ensemble Connect, Grammy Award winning ensemble Sō Percussion, and the Skidmore Symphony Orchestra. In addition to his composition work, Joshua served as music director and conductor for the Westchester Brassmen Drum and Bugle Corps from 2022 to 2025. He also plays French horn with various ensembles including the Schenectady-Saratoga Symphony Orchestra, Excelsior Symphony Orchestra, New York-Vermont Wind Symphony.`,
+  bio2: `Joshua has collaborated as a composer with a number of groups such as 
+  Carnegie Hall’s Ensemble Connect, Grammy Award winning ensemble Sō Percussion, and the 
+  Skidmore Symphony Orchestra. In addition to his composition work, Joshua served as music director and conductor for the
+   Westchester Brassmen Drum and Bugle Corps from 2022 to 2025. He also plays French horn with various ensembles including the 
+   Schenectady-Saratoga Symphony Orchestra, Excelsior Symphony Orchestra, New York-Vermont Wind Symphony.`,
   email: 'joshuafeldmanmusic@gmail.com',
 }
 
