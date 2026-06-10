@@ -6,15 +6,15 @@ import './App.css'
 const COMPOSER = {
   name: 'Joshua Feldman',
   title: 'Composer, Conductor, Horn Player',
-  bio: `Joshua Feldman (b. 2004) is a New York based composer, French horn player 
+  bio: `\tJoshua Feldman (b. 2004) is a New York based composer, French horn player 
   and music educator. He is a graduate of the Hoff-Barthelson Music School and Skidmore College. 
   Throughout his musical journey he has studied French horn under instructors such as Karen Froehlich, 
   Darlene Kaukoranta and Patrice Malatestinic, as well as composition under Joseph Piscatelli and Dr. Evan Mack. 
 `,
-  bio2: `Joshua has collaborated as a composer with a number of groups such as 
+  bio2: `\tJoshua has collaborated as a composer with a number of groups such as 
   Carnegie Hall’s Ensemble Connect, Grammy Award winning ensemble Sō Percussion, and the 
   Skidmore Symphony Orchestra. In addition to his composition work, Joshua served as music director and conductor for the
-   Westchester Brassmen Drum and Bugle Corps from 2022 to 2025. He also plays French horn with various ensembles including the 
+   Westchester Brassmen Drum and Bugle Corps since 2022. He also plays French horn with various ensembles including the 
    Schenectady-Saratoga Symphony Orchestra, Excelsior Symphony Orchestra, New York-Vermont Wind Symphony.`,
   email: 'joshuafeldmanmusic@gmail.com',
 }
@@ -148,17 +148,19 @@ function VideoCard({ video }) {
 }
 
 const CATALOG = [
-    { title: 'Sonoravia', instrumentation: 'for Symphony Orchestra', year: 2026 },
+    { title: 'The Second Prometheus', instrumentation: 'for Piano Quintet', year: 2026 },
     { title: 'Saratoga Variations', instrumentation: 'for Violin and Cello', year: 2026 },
+    { title: 'Desolation', instrumentation: 'for Chamber Orchestra', year: 2026 },
     { title: 'Shimmers of Blue', instrumentation: 'for Sō Percussion', year: 2026 },
-    { title: 'Beksinski', instrumentation: 'for String Piano Trio', year: 2026 },
-    { title: 'Ultima Voca', instrumentation: 'for String Octet', year: 2026 },
+    { title: 'Beksiński', instrumentation: 'for Piano Trio', year: 2026 },
+    { title: 'Sonoravia', instrumentation: 'for Symphony Orchestra', year: 2025 },
+    { title: 'Ultima Voca', instrumentation: 'for String Octet', year: 2025 },
     { title: 'Clashes and Cries', instrumentation: 'for String Quartet', year: 2025 },
     { title: 'Aria Without Words', instrumentation: 'for Solo Horn', year: 2025 },
-    { title: 'Frenzy', instrumentation: 'for Horn Quintet or Solo Piano', year: 2025 },
-    { title: 'Nature\'s Sequences', instrumentation: 'for Solo Piano', year: 2024 },
+    { title: 'Frenzy', instrumentation: 'for Horn Quintet', year: 2025 },
     { title: 'Two Miniatures', instrumentation: 'for Solo Piano', year: 2024 },
-    { title: 'Butterfly Lovers', instrumentation: 'for Voice and Piano', year: 2024 },
+    { title: 'Nature\'s Sequences', instrumentation: 'for Solo Piano', year: 2024 },
+    { title: 'Butterfly Lovers', instrumentation: 'for Soprano and Piano', year: 2024 },
     { title: 'Swirls in the Wind', instrumentation: 'for String Quartet', year: 2024 },
     { title: 'Path of Lamentation', instrumentation: 'for Symphony Orchestra or Brass Choir', year: 2023 },
     { title: 'Elysian Dreams', instrumentation: 'for Symphony Orchestra and Solo Cello', year: 2023 },
@@ -204,8 +206,8 @@ function Contact() {
   return (
       <section className="section contact" id="contact">
         <div className="section__inner contact__inner">
-          <div className="section__label">Contact</div>
-          <h2 className="section__heading">Get in Touch</h2>
+          <div className="section__label"></div>
+          <h2 className="section__heading">Contact</h2>
           <p className="contact__body">
             For commissions, engagements, or general inquiries, please reach out by email.
           </p>
