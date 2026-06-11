@@ -365,21 +365,22 @@
       <h2 class="section-heading">Compositions</h2>
       <table class="catalog-table">
         <tbody>
-          <tr><td class="col-title">Sonoravia</td><td class="col-instr">for Symphony Orchestra</td><td class="col-year">2026</td></tr>
+          <tr><td class="col-title">The Second Prometheus</td><td class="col-instr">for Piano Quintet</td><td class="col-year">2026</td></tr>
           <tr><td class="col-title">Saratoga Variations</td><td class="col-instr">for Violin and Cello</td><td class="col-year">2026</td></tr>
+          <tr><td class="col-title">Desolation</td><td class="col-instr">for Chamber Orchestra</td><td class="col-year">2023</td></tr>
+          <tr><td class="col-title">Beksinski</td><td class="col-instr">for Piano Trio</td><td class="col-year">2026</td></tr>
+          <tr><td class="col-title">Sonoravia</td><td class="col-instr">for Symphony Orchestra</td><td class="col-year">2026</td></tr>
           <tr><td class="col-title">Shimmers of Blue</td><td class="col-instr">for Sō Percussion</td><td class="col-year">2026</td></tr>
-          <tr><td class="col-title">Beksinski</td><td class="col-instr">for String Piano Trio</td><td class="col-year">2026</td></tr>
           <tr><td class="col-title">Ultima Voca</td><td class="col-instr">for String Octet</td><td class="col-year">2026</td></tr>
           <tr><td class="col-title">Clashes and Cries</td><td class="col-instr">for String Quartet</td><td class="col-year">2025</td></tr>
           <tr><td class="col-title">Aria Without Words</td><td class="col-instr">for Solo Horn</td><td class="col-year">2025</td></tr>
           <tr><td class="col-title">Frenzy</td><td class="col-instr">for Horn Quintet or Solo Piano</td><td class="col-year">2025</td></tr>
           <tr><td class="col-title">Nature's Sequences</td><td class="col-instr">for Solo Piano</td><td class="col-year">2024</td></tr>
           <tr><td class="col-title">Two Miniatures</td><td class="col-instr">for Solo Piano</td><td class="col-year">2024</td></tr>
-          <tr><td class="col-title">Butterfly Lovers</td><td class="col-instr">for Voice and Piano</td><td class="col-year">2024</td></tr>
+          <tr><td class="col-title">Butterfly Lovers</td><td class="col-instr">for Soprano and Piano</td><td class="col-year">2024</td></tr>
           <tr><td class="col-title">Swirls in the Wind</td><td class="col-instr">for String Quartet</td><td class="col-year">2024</td></tr>
           <tr><td class="col-title">Path of Lamentation</td><td class="col-instr">for Symphony Orchestra or Brass Choir</td><td class="col-year">2023</td></tr>
           <tr><td class="col-title">Elysian Dreams</td><td class="col-instr">for Symphony Orchestra and Solo Cello</td><td class="col-year">2023</td></tr>
-          <tr><td class="col-title">Desolation Suite</td><td class="col-instr">for Chamber Orchestra</td><td class="col-year">2023</td></tr>
         </tbody>
       </table>
     </div>
@@ -391,7 +392,7 @@
       <div class="section-label">Contact</div>
       <h2 class="section-heading">Get in Touch</h2>
       <p class="contact-body">For commissions, engagements, or general enquiries, please reach out by email.</p>
-      <a href="mailto:12joshuaf@gmail.com" class="contact-email">12joshuaf@gmail.com</a>
+      <a href="mailto:joshuafeldmanmusic@gmail.com" class="contact-email">joshuafeldmanmusic@gmail.com</a>
     </div>
   </section>
 
