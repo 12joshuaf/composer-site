@@ -6,13 +6,457 @@
   <title>Joshua Feldman — Composer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap"
-          rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0E1525;
+      --navy-mid: #162035;
+      --ivory: #F0EAD6;
+      --ivory-dim: #bdb49e;
+      --gold: #C9A84C;
+      --gold-dim: #8a6f2e;
+      --font-display: 'Cormorant Garant', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--ivory);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--gold); color: var(--navy); }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(14,21,37,0.95);
+      backdrop-filter: blur(12px);
+      padding: 1rem 3rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .nav-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ivory);
+    }
+    .nav-links { list-style: none; display: flex; gap: 2.5rem; }
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ivory-dim);
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-image-wrap { position: absolute; inset: 0; }
+    .hero-image {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(20%);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(14,21,37,0.3) 0%,
+        rgba(14,21,37,0.1) 40%,
+        rgba(14,21,37,0.75) 80%,
+        rgba(14,21,37,1) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 3rem 5rem;
+      max-width: 700px;
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--ivory);
+    }
+    .hero-rule {
+      width: 3rem; height: 1px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+    }
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--ivory-dim);
+      font-style: italic;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem; right: 3rem;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--ivory-dim);
+      text-decoration: none;
+    }
+    .hero-scroll-line {
+      display: block;
+      width: 1px; height: 3rem;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+    }
+    .hero-scroll-text {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    /* SECTIONS */
+    .section { padding: 7rem 0; }
+    .section-inner { max-width: 900px; margin: 0 auto; padding: 0 3rem; }
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ivory);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ABOUT */
+    .about { border-top: 1px solid rgba(201,168,76,0.15); }
+    .about-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 620px;
+      font-size: 1rem;
+      color: var(--ivory-dim);
+      line-height: 1.8;
+    }
+
+    /* WORKS */
+    .works {
+      border-top: 1px solid rgba(201,168,76,0.15);
+      background: var(--navy-mid);
+    }
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .video-card { display: flex; flex-direction: column; gap: 1rem; }
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      background: #000;
+      overflow: hidden;
+      border-radius: 2px;
+      width: 100%;
+    }
+    .video-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s, filter 0.4s;
+    }
+    .video-thumb:hover img { transform: scale(1.03); filter: brightness(0.75); }
+    .thumb-overlay {
+      position: absolute; inset: 0;
+      background: rgba(14,21,37,0.35);
+      transition: background 0.3s;
+    }
+    .video-thumb:hover .thumb-overlay { background: rgba(14,21,37,0.55); }
+    .play-btn {
+      position: absolute; inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      transition: transform 0.3s;
+    }
+    .video-thumb:hover .play-btn { transform: scale(1.15); }
+    .video-iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+      border-radius: 2px;
+    }
+    .video-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ivory);
+    }
+    .video-subtitle { font-size: 0.8rem; color: var(--ivory-dim); letter-spacing: 0.04em; }
+
+    /* CATALOG */
+    .catalog { border-top: 1px solid rgba(201,168,76,0.15); }
+    .catalog-table { width: 100%; border-collapse: collapse; }
+    .catalog-table tr { border-bottom: 1px solid rgba(201,168,76,0.1); transition: background 0.2s; }
+    .catalog-table tr:hover { background: rgba(201,168,76,0.05); }
+    .col-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--ivory);
+      padding: 1rem 1.5rem 1rem 0;
+      white-space: nowrap;
+    }
+    .col-instr { color: var(--ivory-dim); font-size: 0.85rem; padding: 1rem 1.5rem 1rem 0; width: 100%; }
+    .col-year {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-align: right;
+      padding: 1rem 0;
+      white-space: nowrap;
+    }
+
+    /* CONTACT */
+    .contact { border-top: 1px solid rgba(201,168,76,0.15); }
+    .contact-inner { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .contact-body { max-width: 400px; color: var(--ivory-dim); margin-bottom: 2rem; }
+    .contact-email {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold-dim);
+      padding-bottom: 0.25rem;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .contact-email:hover { color: var(--ivory); border-color: var(--ivory); text-decoration: none; }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 3rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--ivory-dim);
+      opacity: 0.6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav, nav.scrolled { padding: 1.25rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .hero-content { padding: 0 1.5rem 4rem; }
+      .hero-scroll { right: 1.5rem; }
+      .section-inner { padding: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
 </head>
 <body>
-<div id="root"></div>
-<script type="module" src="/src/main.jsx"></script>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <span class="nav-name">Joshua Feldman</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#catalog">Catalog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image-wrap">
+      <img src="assets/conducting.jpg" alt="Joshua Feldman conducting" class="hero-image" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Composer · Conductor</p>
+      <h1 class="hero-name">Joshua Feldman</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline"><em>Music forged from silence and sound</em></p>
+    </div>
+    <a href="#about" class="hero-scroll" aria-label="Scroll down">
+      <span class="hero-scroll-line"></span>
+      <span class="hero-scroll-text">Scroll</span>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="section-inner">
+      <div class="section-label">About</div>
+      <h2 class="section-heading">The Composer</h2>
+      <div class="about-body">
+        <p>Joshua Feldman (b. 2004) is a New York based composer, French horn player and music educator. He is a graduate of the Hoff-Barthelson Music School and Skidmore College. Throughout his musical journey he has studied French horn under instructors such as Karen Froehlich, Darlene Kaukoranta and Patrice Malatestinic, as well as composition under Joseph Piscatelli and Dr. Evan Mack.</p>
+        <p>Joshua has collaborated as a composer with a number of groups such as Carnegie Hall's Ensemble Connect, Grammy Award winning ensemble Sō Percussion, and the Skidmore Symphony Orchestra. In addition to his composition work, Joshua served as music director and conductor for the Westchester Brassmen Drum and Bugle Corps from 2022 to 2025. He also plays French horn with various ensembles including the Schenectady-Saratoga Symphony Orchestra, Excelsior Symphony Orchestra, New York-Vermont Wind Symphony.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section class="section works" id="works">
+    <div class="section-inner">
+      <div class="section-label">Works</div>
+      <h2 class="section-heading">Selected Recordings</h2>
+      <div class="works-grid" id="works-grid"></div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="section catalog" id="catalog">
+    <div class="section-inner">
+      <div class="section-label">Catalog</div>
+      <h2 class="section-heading">Compositions</h2>
+      <table class="catalog-table">
+        <tbody>
+          <tr><td class="col-title">Sonoravia</td><td class="col-instr">for Symphony Orchestra</td><td class="col-year">2026</td></tr>
+          <tr><td class="col-title">Saratoga Variations</td><td class="col-instr">for Violin and Cello</td><td class="col-year">2026</td></tr>
+          <tr><td class="col-title">Shimmers of Blue</td><td class="col-instr">for Sō Percussion</td><td class="col-year">2026</td></tr>
+          <tr><td class="col-title">Beksinski</td><td class="col-instr">for String Piano Trio</td><td class="col-year">2026</td></tr>
+          <tr><td class="col-title">Ultima Voca</td><td class="col-instr">for String Octet</td><td class="col-year">2026</td></tr>
+          <tr><td class="col-title">Clashes and Cries</td><td class="col-instr">for String Quartet</td><td class="col-year">2025</td></tr>
+          <tr><td class="col-title">Aria Without Words</td><td class="col-instr">for Solo Horn</td><td class="col-year">2025</td></tr>
+          <tr><td class="col-title">Frenzy</td><td class="col-instr">for Horn Quintet or Solo Piano</td><td class="col-year">2025</td></tr>
+          <tr><td class="col-title">Nature's Sequences</td><td class="col-instr">for Solo Piano</td><td class="col-year">2024</td></tr>
+          <tr><td class="col-title">Two Miniatures</td><td class="col-instr">for Solo Piano</td><td class="col-year">2024</td></tr>
+          <tr><td class="col-title">Butterfly Lovers</td><td class="col-instr">for Voice and Piano</td><td class="col-year">2024</td></tr>
+          <tr><td class="col-title">Swirls in the Wind</td><td class="col-instr">for String Quartet</td><td class="col-year">2024</td></tr>
+          <tr><td class="col-title">Path of Lamentation</td><td class="col-instr">for Symphony Orchestra or Brass Choir</td><td class="col-year">2023</td></tr>
+          <tr><td class="col-title">Elysian Dreams</td><td class="col-instr">for Symphony Orchestra and Solo Cello</td><td class="col-year">2023</td></tr>
+          <tr><td class="col-title">Desolation Suite</td><td class="col-instr">for Chamber Orchestra</td><td class="col-year">2023</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="section-inner contact-inner">
+      <div class="section-label">Contact</div>
+      <h2 class="section-heading">Get in Touch</h2>
+      <p class="contact-body">For commissions, engagements, or general enquiries, please reach out by email.</p>
+      <a href="mailto:12joshuaf@gmail.com" class="contact-email">12joshuaf@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Joshua Feldman. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear()
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60)
+    })
+
+    // Videos
+    const VIDEOS = [
+      { id: '35E50IMZ-G0', title: 'Sonoravia', subtitle: 'Skidmore Symphony Orchestra' },
+      { id: 'uPhZlS7HFCY', title: 'Clashes and Cries', subtitle: 'Skidmore String Quartet' },
+      { id: '7xnxgrMyhDM', title: 'Desolation Suite', subtitle: 'Saratoga Sinfonietta' },
+      { id: 'EHupy1-hV6k', title: 'Shimmers of Blue', subtitle: 'Composed for Sō Percussion' },
+    ]
+
+    const grid = document.getElementById('works-grid')
+
+    VIDEOS.forEach(video => {
+      const card = document.createElement('div')
+      card.className = 'video-card'
+
+      const thumb = document.createElement('button')
+      thumb.className = 'video-thumb'
+      thumb.setAttribute('aria-label', `Play ${video.title}`)
+
+      const img = document.createElement('img')
+      img.src = `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`
+      img.alt = video.title
+      img.onerror = () => { img.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg` }
+
+      const overlay = document.createElement('div')
+      overlay.className = 'thumb-overlay'
+
+      const play = document.createElement('div')
+      play.className = 'play-btn'
+      play.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg>`
+
+      thumb.append(img, overlay, play)
+
+      thumb.addEventListener('click', () => {
+        const iframe = document.createElement('iframe')
+        iframe.className = 'video-iframe'
+        iframe.src = `https://www.youtube.com/embed/${video.id}?autoplay=1`
+        iframe.title = video.title
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        iframe.allowFullscreen = true
+        thumb.replaceWith(iframe)
+      })
+
+      const info = document.createElement('div')
+      info.innerHTML = `<p class="video-title">${video.title}</p><p class="video-subtitle">${video.subtitle}</p>`
+
+      card.append(thumb, info)
+      grid.appendChild(card)
+    })
+  </script>
+
 </body>
 </html>
