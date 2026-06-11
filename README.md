@@ -2,6 +2,7 @@
 # Joshua Feldman Composer Website
 
 This is just the website for my classical music career portfolio
+Originally built with react and vite, but this will not deploy on github pages, so index.html is what is deployed. 
 
 
 
